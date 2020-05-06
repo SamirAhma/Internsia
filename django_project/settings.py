@@ -140,3 +140,5 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_NAME')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
 STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
+
+ALLOWED_HOSTS = ['intersia.herokuapp.com']

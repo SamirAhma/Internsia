@@ -2,22 +2,56 @@
 {% block content %}
 
 <article class="media content-section">
-    <img src="{{ post.author.profile.image.url }}" alt="" class="rounded-circle article-img">
+   
     <div class="media-body">
+        <div class="card" style="width: 100%;">
+           
+            <div class="card-body">
+                {% if object.author == user %}
+                <a href="{% url 'post-update' object.id %}" class="btn btn-secondary btn-sm mt-1">Update</a>
+                <a href="{% url 'post-delete' object.id %}" class="btn btn-danger btn-sm mt-1">Delete</a>
+           
+        
+              {% endif %}
+                <!-- <h2 class="account-heading">{{ user.profile.company_name }}</h2>
+               -->
+               <div style="display: flex;justify-content: space-between;">
+                <h5>{{ post.author.profile.company_name }}</h5>   <img src="{{ post.author.profile.image.url }}" alt="" class="rounded-circle article-img">
+              </div>
+        
+        
+              <div class="" style="display: flex;justify-content: space-between;">
+                <p>Location: {{ post.daerah }}</p>
+                <p>Duration: {{ post.duration }}</p>
+                  <!-- <h5><a class="article-title" href="{% url 'post-detail' post.id %}">{{ object.company }}</a></h5> -->
+                  <p>Posted On:{{ post.date_posted|date:"F d, Y" }}</p>
+              </div>
+            </div>
+          </div>
 
-        <h2 class="article-title">{{ object.title }}</h2>
-        <div class="article-metadata">
-            <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
-            <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-        </div>
       
+          <h6>About{{ user.profile.company_name }}</h6>
+        <p class="article-title">{{ user.profile.about_company }}</p>
+        <!-- <div class="article-metadata">
+            <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+         
+            <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+           
+        </div> -->
 
-       {% if object.author == user %}
-          <a href="{% url 'post-update' object.id %}" class="btn btn-secondary btn-sm mt-1">Update</a>
-          <a href="{% url 'post-delete' object.id %}" class="btn btn-danger btn-sm mt-1">Delete</a>
+        <h6 class="mr-2">Number of jobs/internships available: {{ object.available }}</h6>
+    <h6>About the work</h6>
         <p class="article-content">{{ object.content }}</p>
-
-        {% endif %}
+        <h6>Selected intern's day-to-day responsibilities include</h6>
+        <p class="article-content">{{ object.responsibility }}</p>
+        <h6>Skill(s) required</h6>
+       
+        <p class="article-content">{{ object.skills }}</p>
+        <h6> Who can apply</h6>
+        <p class="article-content">{{ object.who_apply }}</p>
+        <h6> Perks</h6>
+        <p class="article-content">{{ object.perks }}</p>
+     
     </div>
 </article>
 

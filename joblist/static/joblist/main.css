@@ -50,8 +50,8 @@ a.article-title:hover {
 }
 
 .article-img {
-  height: 65px;
-  width: 65px;
+  height: 35px;
+  width: 35px;
   margin-right: 16px;
 }
 
@@ -79,9 +79,9 @@ a.article-title:hover {
   margin-bottom: 16px;
 }
 
-.account-heading {
+/* .account-heading {
   font-size: 2.5rem;
-}
+} */
 
 .navbar-right{
   background-color:#3caea3 !important;

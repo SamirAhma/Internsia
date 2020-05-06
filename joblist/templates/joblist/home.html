@@ -2,15 +2,33 @@
 {% block content %}
 {% for post in posts %}
 <article class="media content-section">
-    <img src="{{ post.author.profile.image.url }}" alt="" class="rounded-circle article-img">
+   
     <div class="media-body">
-        <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-        <div class="article-metadata">
-            <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+      <h4><a class="article-title" href="{% url 'post-detail' post.id %}" style="color: #5F788A;">{{ post.category }}</a></h4>
+
+
+      <div style="display: flex;justify-content: space-between;">
+        <h5>{{ post.author.profile.company_name }}</h5>   <img src="{{ post.author.profile.image.url }}" alt="" class="rounded-circle article-img">
+      </div>
+
+
+      <div class="" style="display: flex;justify-content: space-between;">
+        <p>Location: {{ post.daerah }}</p>
+        <p>Duration: {{ post.duration }}</p>
+          <!-- <h5><a class="article-title" href="{% url 'post-detail' post.id %}">{{ object.company }}</a></h5> -->
+          <p>Posted On:{{ post.date_posted|date:"F d, Y" }}</p>
+      </div>
+  
+        <a class="btn btn-outline-primary" href="{% url 'post-detail' post.id %}">View Details</a>
+        
+       
+     
+        <!-- <div class="article-metadata">
+       
+        
         </div>
       
-        <p class="article-content">{{ post.content }}</p>
+       -->
     </div>
 </article>
 {% endfor %}

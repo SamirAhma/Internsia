@@ -36,7 +36,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin,CreateView):
     model = Post
-    fields = ['category','daerah','duration','available','content','responsibility','skills','perks','who_apply']
+    fields = ['category','daerah','duration','available','content','responsibility','skills','perks','who_apply','contact']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -44,7 +44,7 @@ class PostCreateView(LoginRequiredMixin,CreateView):
 
 class PostUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
     model = Post
-    fields = ['category','daerah','duration','available','content','responsibility','skills','perks','who_apply']
+    fields = ['category','daerah','duration','available','content','responsibility','skills','perks','who_apply','contact']
 
     def form_valid(self, form):
         form.instance.author = self.request.user

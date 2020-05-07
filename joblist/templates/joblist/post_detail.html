@@ -32,12 +32,12 @@
       
           <h6>About{{ user.profile.company_name }}</h6>
         <p class="article-title">{{ user.profile.about_company }}</p>
-        <div class="article-metadata">
+        <!-- <div class="article-metadata">
             <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
          
          
            
-        </div>
+        </div> -->
 
         <h6 class="mr-2">Number of jobs/internships available: {{ object.available }}</h6>
     <h6>About the work</h6>
@@ -51,6 +51,8 @@
         <p class="article-content">{{ object.who_apply }}</p>
         <h6> Perks</h6>
         <p class="article-content">{{ object.perks }}</p>
+        <h6> Contact</h6>
+        <!-- <p class="article-content">{{ user.email }}</p> -->
      
     </div>
 </article>

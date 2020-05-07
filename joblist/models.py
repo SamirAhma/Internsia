@@ -24,6 +24,7 @@ class Post(models.Model):
     category= models.CharField(max_length=100, choices= JOB_CATEGORY)
     daerah= models.CharField(max_length=100, choices= DAERAH)
     duration= models.CharField(max_length=100, choices= DURATION)
+    contact= models.CharField(max_length=100)
     def __str__(self):
         return self.title
 

@@ -159,6 +159,7 @@ class Post(models.Model):
     daerah= models.CharField(max_length=100, choices= DAERAH)
     duration= models.CharField(max_length=100, choices= DURATION)
     contact= models.CharField(max_length=100)
+    title= models.CharField(max_length=100)
     def __str__(self):
         return self.title
 

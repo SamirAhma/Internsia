@@ -1,13 +1,5 @@
-from django.db import models
-from django.utils import timezone
-from django.contrib.auth.models import User
-from django.urls import reverse
-# from users.models import Profile
-# Create your models here.
 
-class Post(models.Model):
-   
-    JOB_CATEGORY =(
+  (
     (".NET Development", ".NET Development"),
     ("3D Printing", "3D Printing"),
     ("Accounts", "Accounts"),
@@ -48,7 +40,7 @@ class Post(models.Model):
     ("Cyber Security", "Cyber Security"),
     ("Data Entry", "Data Entry"),
     ("Data Science", "Data Science"),
-    ("Database Building", "Database Building"),
+    "Database Building", "Database Building"),
     ("Design", "Design"),
     ("Digital Marketing", "Digital Marketing"),
     ("Editorial", "Editorial"),
@@ -142,28 +134,3 @@ class Post(models.Model):
    ("Wordpress Development", "Wordpress Development"),
     
   )
-
-    DAERAH= (('Works from Home','Works from Home'),('Tawau','Tawau'),('Sandakan','Sandakan'),('Lahad Datu','Lahad Datu'),('Kota Kinabalu','Kota Kinabalu'),('Semporna','Semporna'))
-    DURATION =(('1 Months','1 Months'),('2 Months','2 Months'),('3 Months','3 Months'),('4 Months','4 Months'),('5 Months','5 Months'),('6 Months','6 Months'))
-    AVAILABLE =(('1','1'),('2','2'),('3','3'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'),('8','8'),('9','9'),('10','10'),('11','11'),('12','12'),('13','13'),('14','14'),('15','15'),('16','16'),('17','17'),('18','18'),('19','19'),('20','20'))
-
-    content = models.TextField("About the work")
-    responsibility = models.TextField("Selected intern's day-to-day responsibilities include")
-    skills= models.CharField(max_length=100)
-    perks = models.CharField(max_length=100)
-    who_apply= models.TextField("Who can apply")
-    date_posted = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(User, on_delete =models.CASCADE)
-    available = models.CharField(max_length=2,choices= AVAILABLE )
-    category= models.CharField(max_length=100, choices= JOB_CATEGORY)
-    daerah= models.CharField(max_length=100, choices= DAERAH)
-    duration= models.CharField(max_length=100, choices= DURATION)
-    contact= models.CharField(max_length=100)
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('post-detail', kwargs={'pk':self.pk})
-    
-
-

@@ -19,8 +19,17 @@ from users import views as user_views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
+from joblist.sitemap import StaticViewsSiteMap
+from django.contrib.sitemaps.views import sitemap
+
+
+sitemaps ={
+    'static':StaticViewsSiteMap
+}
 
 urlpatterns = [
+    # path('', include('joblist.urls')),
+    path('sitemap.xml',sitemap,{'sitemaps': sitemaps}),
     path('admin/', admin.site.urls),
     path('register', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),

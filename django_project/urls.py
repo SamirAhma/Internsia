@@ -19,12 +19,13 @@ from users import views as user_views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
-from joblist.sitemap import StaticViewsSiteMap
+from joblist.sitemap import StaticViewsSiteMap,PostViewsSiteMpa
 from django.contrib.sitemaps.views import sitemap
 
 
 sitemaps ={
-    'static':StaticViewsSiteMap
+    'static':StaticViewsSiteMap,
+    'post': PostViewsSiteMpa
 }
 
 urlpatterns = [
